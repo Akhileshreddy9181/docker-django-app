@@ -12,7 +12,7 @@ RUN apt-get update && \
     cd devops
 
 # In Stage1 , we are creating a app dir and copying code from local to image and installing all the required dependencies
-In Stages2 , i just have to execute the python application, i dont need the ubuntu image, which is heavier than the python distro image.
+#In Stages2 , i just have to execute the python application, i dont need the ubuntu image, which is heavier than the python distro image.
 
 
 #Stage2
