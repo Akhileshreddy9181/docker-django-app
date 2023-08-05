@@ -8,7 +8,8 @@ COPY devops /app
 
 RUN apt-get update && \
     apt-get install -y python3 python3-pip && \
-    pip install -r requirements.txt
+    pip install -r requirements.txt && \
+    cd devops
 
 
 # In Stage1 , we are creating a app dir and copying code from local to image and installing all the required dependencies
