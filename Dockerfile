@@ -8,8 +8,7 @@ COPY devops /app
 
 RUN apt-get update && \
     apt-get install -y python3 python3-pip && \
-    pip install -r requirements.txt && \
-    cd devops
+    pip install -r requirements.txt
 
 
 # In Stage1 , we are creating a app dir and copying code from local to image and installing all the required dependencies
@@ -18,10 +17,12 @@ RUN apt-get update && \
 
 #Stage2
 
-#FROM python:3.9
-#
-#WORKDIR /main
-#COPY --from=build /app /main
-#
-#ENTRYPOINT ["python3"]
-#CMD ["manage.py", "runserver", "0.0.0.0:8000"]
+FROM python
+
+WORKDIR /app
+COPY --from=build /app /app
+
+ENV PATH="/app:${PATH}"
+
+ENTRYPOINT ["python3"]
+CMD ["manage.py", "runserver", "0.0.0.0:8000"]
