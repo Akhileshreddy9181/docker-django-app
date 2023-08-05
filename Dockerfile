@@ -1,6 +1,6 @@
 #Stage1
 
-FROM ubuntu as build
+FROM centos/nginx-18-centos7:latest as build
 WORKDIR /app
 
 COPY requirements.txt /app
@@ -22,7 +22,7 @@ FROM python
 WORKDIR /app
 COPY --from=build /app /app
 
-ENV PATH="/app:${PATH}"
+RUN cd devops
 
 ENTRYPOINT ["python3"]
 CMD ["manage.py", "runserver", "0.0.0.0:8000"]
