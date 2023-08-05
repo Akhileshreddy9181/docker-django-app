@@ -18,10 +18,10 @@ RUN apt-get update && \
 
 #Stage2
 
-#FROM python:3.9
-#
-#WORKDIR /main
-#COPY --from=build /app /main
-#
-#ENTRYPOINT ["python3"]
-#CMD ["manage.py", "runserver", "0.0.0.0:8000"]
+FROM python:3.9
+
+WORKDIR /main
+COPY --from=build /app /main
+
+ENTRYPOINT ["python3"]
+CMD ["manage.py", "runserver", "0.0.0.0:8000"]
