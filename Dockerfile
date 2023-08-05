@@ -1,6 +1,6 @@
 #Stage1
 
-FROM centos/nginx-18-centos7:latest as build
+FROM ubuntu as build
 WORKDIR /app
 
 COPY requirements.txt /app
